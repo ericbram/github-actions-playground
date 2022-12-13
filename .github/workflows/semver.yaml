@@ -1,0 +1,15 @@
+name: Update Semver
+on:
+  workflow_dispatch:
+    inputs:
+      name:
+        version: string
+  
+jobs:
+  update-semver:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: haya14busa/action-update-semver@v1
+        with:
+          tag: ${{ inputs.version }}
